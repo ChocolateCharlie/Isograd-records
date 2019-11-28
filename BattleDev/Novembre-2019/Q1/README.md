@@ -1,11 +1,14 @@
 # Question 1: Courte paille
----
 
 ## Présentation du problème
-On vous donne N couples prénom-taille. L'objectif est d'afficher le prénom de celui qui a la plus petite taille. L'énoncé vous garanti qu'il n'y aura pas d'ex aequo.
+_On vous donne N couples prénom-taille.
+L'objectif est d'afficher le prénom de celui qui a la plus petite taille.
+L'énoncé vous garanti qu'il n'y aura pas d'ex aequo._
+
+<br/>
 
 ## Résolution pas à pas
-### Lire l'entrée
+### Étape 1: lire l'entrée
 L'énoncé indique que l'entrée consiste en:
 * un entier N entre 10 et 100
 * N lignes composées:
@@ -33,13 +36,15 @@ void ContestExerciseImpl::main() {
     }
 }
 ```
+<br/>
 
-### Trouver la plus petite taille
+### Étape 2: trouver la plus petite taille
 Dans un premier temps, on peut assimiler le problème au suivant: trouver le plus petit entier. Pour cela, vous allez devoir créer une variable conservant cette valeur (mettons ```t_ans```) et, à chaque fois que vous lirez un nouvel entier ```t```, vous le comparerez à cette valeur pour vous assurer que c'est bien la plus petite. Si ce n'est pas la plus petite, vous lui attribuerez alors la nouvelle valeur ```t```.
 > **Problème: il faut donner une valeur de départ à ```t_ans```.**
-Il y a plusieurs façons de s'y prendre. Une solution que je ne détaillerai pas ici consiste à initialiser ```t_ans``` avec la première valeur qui vous est donnée.
-La solution que je vais détailler consiste à donner une valeur qu'on va considérer comme "infinie" à ```t_ans``` pour avoir la certitude que toute valeur ```t``` sera nécessairement plus petite. **Il n'existe évidemment pas de valeur "infinie".**  Cette technique consiste à prendre un nombre très grand, tellement grand que n'importe quel nombre sera plus petit que lui.
 
+> Il y a plusieurs façons de s'y prendre. Une solution que je ne détaillerai pas ici consiste à initialiser ```t_ans``` avec la première valeur qui vous est donnée.
+
+> La solution que je vais vous détailler consiste à donner une valeur qu'on va considérer comme "infinie" à ```t_ans``` pour avoir la certitude que toute valeur ```t``` sera nécessairement plus petite. **Il n'existe évidemment pas de valeur "infinie".**  Cette technique consiste à prendre un nombre très grand, tellement grand que n'importe quel nombre sera plus petit que lui.
 
 Ajoutez ``` #include <limits>``` en haut de votre code, puis créez la variable ```t_ans``` et initialisez la comme suit:
 ```cpp
@@ -81,8 +86,9 @@ void ContestExerciseImpl::main() {
     cout << t_ans;  // Et on n'oublie pas d'afficher le résultat !
 }
 ```
+<br/>
 
-### Afficher le prénom
+### Étape 3: afficher le prénom
 Félicitations, vous avez quasiment résolu le problème ! Maintenant, il ne vous reste plus qu'à afficher le prénom du perdant (celui qui a la plus petite taille). Pour cela, créez une variable ```ans``` qui servira à conserver le prénom. Il vous suffit d'adapter le contenu de ```ans``` à chaque fois que vous changez la valeur de ```t_ans```. Ainsi, le code source de votre solution doit ressembler à ceci:
 ```cpp
 #include <iostream>
