@@ -116,6 +116,6 @@ void ContestExerciseImpl::main() {
         }
     }
     
-    cout << ans;    // N'oubliez pas d'afficher la réponse !
+    cout << ans;    // N'oubliez pas d'afficher la réponse au lieu de t_ans !
 }
 ```
