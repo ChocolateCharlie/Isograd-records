@@ -1,25 +1,27 @@
 #include <iostream>
+#include <limits>
+#include <sstream>
 #include "exercise.hpp"
 
 ContestExerciseImpl::ContestExerciseImpl() : Exercise() {}
 
 void ContestExerciseImpl::main() {
-    int n;
-    int w, p;
-    int ar;
+    int N, P, tw, n;
+    
+    n = 1;
+    tw = 0;
 
-    w = 0;
-    ar = 0;
-    cin >> n;
+    cin >> N;
 
-    while (n--) {
-        cin >> p;
-        if (w + p > 100) {
-            w = p;
-            ar++;
+    for (int i = 0; i < N; i++) {
+        cin >> P;
+
+        if (tw + P > 100) {
+            n++;
+            tw = P;
         }
-        else    w += p;
+        else    tw += P;
     }
 
-    cout << (w > 0 ? ar + 1 : ar);
+    cout << n;
 }
