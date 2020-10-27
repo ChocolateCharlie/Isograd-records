@@ -1,20 +1,21 @@
 #include <iostream>
+#include <limits>
+#include <sstream>
 #include "exercise.hpp"
 
 ContestExerciseImpl::ContestExerciseImpl() : Exercise() {}
 
 void ContestExerciseImpl::main() {
-    int c;
-    int bm, am;
+    int c, b, l;
 
     cin >> c;
 
-    for (int i = 2; i <= 43; i++) {
-        cin >> bm >> am;
-        c = c - am + bm;
+    for (int i = 1; i < 43; i++) {
+        cin >> l >> b;
+        c = c + l - b;
     }
 
-    if      (c <= 100)      cout << 1000;
+    if (c <= 100)   cout << 1000;
     else if (c <= 10000)    cout << 100;
-    else                    cout << "KO";
+    else    cout << "KO";
 }
