@@ -1,24 +1,26 @@
 #include <iostream>
+#include <limits>
 #include <string>
+#include <sstream>
 #include "exercise.hpp"
 
 ContestExerciseImpl::ContestExerciseImpl() : Exercise() {}
 
 void ContestExerciseImpl::main() {
-    int n, r;
-    int p;
-    string e, f;
+    int     N, r, P;
+    string  w, E;
 
-    e = "";
-    cin >> n >> r;
+    w = "KO";
+    cin >> N >> r;
 
-    while (n--) {
-        cin >> p >> f;
-        if (p > r) {
-            r = p;
-            e = f;
+    for (int i = 0; i < N; i++) {
+        cin >> P >> E;
+        
+        if (P > r) {
+            r = P;
+            w = E;
         }
     }
-
-    cout << (e == "" ? "KO" : e);
+    
+    cout << w;
 }
