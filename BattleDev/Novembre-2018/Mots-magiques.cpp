@@ -1,35 +1,29 @@
-#include <algorithm>
 #include <iostream>
+#include <limits>
+#include <set>
+#include <sstream>
 #include <string>
-#include <vector>
 #include "exercise.hpp"
 
 ContestExerciseImpl::ContestExerciseImpl() : Exercise() {}
 
-bool    is_vowel(char c) {
-    return(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'y');
-}
-
 void ContestExerciseImpl::main() {
-    int n;
+    int     N;
     string  s;
+    set<string> magic;
 
-    cin >> n;
+    cin >> N;
 
-    vector<string> m;
-    vector<string>::iterator it;
-
-    while (n--) {
+    for (int i = 0; i < N; i++) {
         cin >> s;
-
+        
         if (s.length() > 4 && s.length() < 8
-            && s[1] - s[0] == 1
-            && is_vowel(s[s.length() - 1]))
-            m.push_back(s);
+        && s[1] == s[0] + 1
+        && (s.back() == 'a' || s.back() == 'e' || s.back() == 'i' || s.back() == 'o' || s.back() == 'u' || s.back() == 'y')
+        && magic.count(s) == 0) {
+            magic.insert(s);
+        }
     }
-
-    it = std::unique(m.begin(), m.end());
-    m.resize(std::distance(m.begin(), it));
-
-    cout << m.size();
+    
+    cout << magic.size();
 }
