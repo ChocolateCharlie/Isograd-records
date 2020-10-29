@@ -1,23 +1,24 @@
 #include <iostream>
-#include <cmath>
+#include <limits>
+#include <math.h>
+#include <sstream>
 #include "exercise.hpp"
 
 ContestExerciseImpl::ContestExerciseImpl() : Exercise() {}
 
 void ContestExerciseImpl::main() {
-    int ans;
-    int N;
-    double n, sa, se;
-
-    ans = 0;
+    int N, f, r, s;
+    int m, b;
+    
+    b = -1;
     cin >> N;
-
-    while (N--) {
-        cin >> n >> sa >> se;
-
-        if (ceil((n + sa + se) / 3) > ans)
-            ans = ceil((n + sa + se) / 3);
+    
+    for (int i = 0; i < N; i++) {
+        cin >> f >> r >> s;
+        
+        m = ceil((f + r + s) / 3.0);
+        if (m > b)  b = m;
     }
-
-    cout << ans;
+    
+    cout << b;
 }
