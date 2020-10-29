@@ -1,25 +1,29 @@
 #include <iostream>
-#include <cmath>
+#include <limits>
+#include <math.h>
+#include <sstream>
 #include "exercise.hpp"
 
 ContestExerciseImpl::ContestExerciseImpl() : Exercise() {}
 
 void ContestExerciseImpl::main() {
-    double  p, c;
-    int N;
-    double  ans;
+    int     b, N, p;
+    float   t, a;
 
-    ans = 0.0;
-    cin >> p >> N;
+    t = 0.0;
+    cin >> b >> N;
 
-    while (N--) {
-        cin >> c;
-
-        if      (c > 9) ans = ans + ((p * 70.0) / 100.0) * c;
-        else if (c > 5) ans = ans + ((p * 80.0) / 100.0) * c;
-        else if (c > 3) ans = ans + ((p * 90.0) / 100.0) * c;
-        else            ans = ans + (p * c);
+    for (int i = 0; i < N; i++) {
+        cin >> p;
+        
+        a = p * b;
+        
+        if (p > 9)      a = a * 70.0 / 100.0;
+        else if (p > 5) a = a * 80.0 / 100.0;
+        else if (p > 3) a = a * 90.0 / 100.0;
+        
+        t += a;
     }
-
-    cout << ceil(ans);
+    
+    cout << ceil(t);
 }
