@@ -1,29 +1,26 @@
 #include <iostream>
 #include <limits>
-#include <set>
 #include <sstream>
 #include <string>
+#include <set>
 #include "exercise.hpp"
 
 ContestExerciseImpl::ContestExerciseImpl() : Exercise() {}
 
 void ContestExerciseImpl::main() {
-    int     N;
-    string  s;
-    set<string> magic;
-
+    int N;
+    string  S;
+    set<string> ans;
     cin >> N;
-
+    
     for (int i = 0; i < N; i++) {
-        cin >> s;
+        cin >> S;
         
-        if (s.length() > 4 && s.length() < 8
-        && s[1] == s[0] + 1
-        && (s.back() == 'a' || s.back() == 'e' || s.back() == 'i' || s.back() == 'o' || s.back() == 'u' || s.back() == 'y')
-        && magic.count(s) == 0) {
-            magic.insert(s);
+        if (S.length() > 4 && S.length() < 8 && S[0] == S[1] - 1 &&
+        (S.back() == 'a' || S.back() == 'e' || S.back() == 'i' || S.back() == 'o' || S.back() == 'u' || S.back() == 'y') && ans.count(S) == 0) {
+            ans.insert(S);
         }
     }
     
-    cout << magic.size();
+    cout << ans.size();
 }
